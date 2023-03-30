@@ -7,6 +7,8 @@
 
 import UIKit
 
+let appColor: UIColor = .systemTeal
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -14,17 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let logingViewController = LoginViewController()
     let onBoardingContainerViewController = OnboardingContainerViewController()
     let dummyViewController = DummyViewController()
+    let mainViewController = MainViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = logingViewController
+   //     window?.rootViewController = logingViewController
+        window?.rootViewController = mainViewController
         logingViewController.delegate = self
  //     window?.rootViewController = onBoardingContainerViewController
         onBoardingContainerViewController.delegate = self
         dummyViewController.logoutDelegate = self
         
+        mainViewController.selectedIndex = 2
         
     //    window?.rootViewController = OnboardingContainerViewController()
 //        window?.rootViewController = OnboardingViewController(heroImageName: "delorean", titleText: "Bankey is faster, easier to use, and has a brand new look and feel that will make you feel like you are back in the 80s.")
