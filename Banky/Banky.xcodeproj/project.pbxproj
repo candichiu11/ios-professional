@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		295007FA29E5A01A004F1877 /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B590C229D709F5004A99A4 /* AccountSummaryHeaderView.swift */; };
+		295007FD29E6DB7C004F1877 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295007FC29E6DB7C004F1877 /* ProfileTests.swift */; };
+		2950080029E6E10A004F1877 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295007FF29E6E10A004F1877 /* AccountTests.swift */; };
 		29A8214729DADD0B004618CF /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8214629DADD0B004618CF /* AccountSummaryCell.swift */; };
 		29A8214929DD9DDC004618CF /* Decimal+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8214829DD9DDC004618CF /* Decimal+Utils.swift */; };
 		29A8214B29DD9E65004618CF /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A8214A29DD9E65004618CF /* CurrencyFormatter.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		295007FC29E6DB7C004F1877 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
+		295007FF29E6E10A004F1877 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		29A8214629DADD0B004618CF /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		29A8214829DD9DDC004618CF /* Decimal+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Utils.swift"; sourceTree = "<group>"; };
 		29A8214A29DD9E65004618CF /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
@@ -89,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		295007FB29E6DB5E004F1877 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				29A8215929DDC427004618CF /* CurrencyFormatterTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		295007FE29E6DC48004F1877 /* AccountSummary */ = {
+			isa = PBXGroup;
+			children = (
+				295007FC29E6DB7C004F1877 /* ProfileTests.swift */,
+				295007FF29E6E10A004F1877 /* AccountTests.swift */,
+			);
+			path = AccountSummary;
+			sourceTree = "<group>";
+		};
 		29A8214329DADC8E004618CF /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +130,8 @@
 		29A8215129DDC225004618CF /* BankyUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				29A8215929DDC427004618CF /* CurrencyFormatterTests.swift */,
+				295007FE29E6DC48004F1877 /* AccountSummary */,
+				295007FB29E6DB5E004F1877 /* Utils */,
 			);
 			path = BankyUnitTests;
 			sourceTree = "<group>";
@@ -312,6 +334,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				29A8215A29DDC427004618CF /* CurrencyFormatterTests.swift in Sources */,
+				2950080029E6E10A004F1877 /* AccountTests.swift in Sources */,
+				295007FD29E6DB7C004F1877 /* ProfileTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

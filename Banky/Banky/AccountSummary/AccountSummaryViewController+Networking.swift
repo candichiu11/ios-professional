@@ -8,24 +8,32 @@
 import Foundation
 import UIKit
 
+enum NetworkError: Error {
+    case serverError
+    case decodingError
+}
+
+struct Profile: Codable {
+    let id: String
+    let firstName: String
+    let lastName: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case firstName = "first_name"
+        case lastName = "last_name"
+    }
+}
+
+struct Account: Codable {
+    let id: String
+    let type: AccountType
+    let name: String
+    let amount: Decimal
+    let createdDateTime: Date
+}
+
 extension AccountSummaryViewController {
-    
-    enum NetworkError: Error {
-        case serverError
-        case decodingError
-    }
-    
-    struct Profile: Codable {
-        let id: String
-        let firstName: String
-        let lastName: String
-        
-        enum CodingKeys: String, CodingKey {
-            case id
-            case firstName = "first_name"
-            case lastName = "last_name"
-        }
-    }
     
     func fetchProfile(forUserId userId: String, completion: @escaping (Result<Profile, NetworkError>) -> Void) {
         
@@ -53,14 +61,6 @@ extension AccountSummaryViewController {
 }
 
 extension AccountSummaryViewController {
-    
-    struct Account: Codable {
-        let id: String
-        let type: AccountType
-        let name: String
-        let amount: Decimal
-        let createdDateTime: Date
-    }
     
     func fetchAccounts(forUserId userId: String, completion: @escaping (Result<[Account], NetworkError>) -> Void) {
         
