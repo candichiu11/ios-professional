@@ -36,16 +36,14 @@ class AccountSummaryViewController : UIViewController {
         setupNavagationBar()
     }
     
-    private func setupNavagationBar() {
-        navigationItem.rightBarButtonItem = logoutBarButtonItem
-    }
 }
 
 extension AccountSummaryViewController {
     private func setup() {
+        setupNavagationBar()
         setupTableView()
         setupTableHeaderView()
-        fetchDataAndLoadViews()
+        fetchData()
     }
     
     private func setupTableView() {
@@ -75,6 +73,10 @@ extension AccountSummaryViewController {
         size.width = UIScreen.main.bounds.width
         headerView.frame.size = size
         tableView.tableHeaderView = headerView
+    }
+    
+    private func setupNavagationBar() {
+        navigationItem.rightBarButtonItem = logoutBarButtonItem
     }
 }
 
@@ -142,30 +144,35 @@ extension AccountSummaryViewController {
 // MARK: Networking
 extension AccountSummaryViewController {
     
-    func fetchDataAndLoadViews() {
+    func fetchData() {
+        let group = DispatchGroup()
         
+        group.enter()
         fetchProfile(forUserId: "1") { result in
             switch result {
             case .success(let profile):
                 self.profile = profile
                 self.configureTableHeaderView(with: profile)
-                self.tableView.reloadData()
-                
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
+            group.leave()
         }
         
+        group.enter()
         fetchAccounts(forUserId: "1") { result in
             switch result {
             case .success(let accounts):
                 self.accounts = accounts
                 self.configureTableCells(with: accounts)
-                self.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            self.tableView.reloadData()
         }
     }
     
