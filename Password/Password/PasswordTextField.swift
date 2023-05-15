@@ -182,7 +182,7 @@ extension PasswordTextField {
     
     func validate() -> Bool {
         if let customValidation = customValidation,
-           let customValidationResult = customValidation(text ?? ""),
+           let customValidationResult = customValidation(text),
            customValidationResult.0 == false {
            showError(customValidationResult.1)
            return false
