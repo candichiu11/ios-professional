@@ -157,3 +157,17 @@ extension PasswordStatusView {
     }
 }
 
+extension PasswordCriteriaView {
+    
+    func isCirleImage() -> Bool {
+        return imageView.image == circleImage
+    }
+    
+    func isCheckmarkImage() -> Bool {
+        return imageView.image == checkmarkImage
+    }
+    
+    func isXmarkImage() -> Bool {
+        return imageView.image == xmarkImage
+    }
+}
